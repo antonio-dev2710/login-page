@@ -29,16 +29,23 @@ export class PrimaryInputComponent implements ControlValueAccessor {
   onChange:any = ()=> {}
   onThouched:any = ()=> {}
 
-  writeValue(obj: any): void {
-    throw new Error('Method not implemented.');
+  onIpunt(event:Event):void {
+    //evento de um input
+    const value =(event.target as HTMLInputElement).value;
+    this.onChange(value);
+
+  }
+
+  writeValue(value: any): void {
+    this.value = value;
   }
   registerOnChange(fn: any): void {
-    throw new Error('Method not implemented.');
+    this.onChange=fn;
   }
   registerOnTouched(fn: any): void {
-    throw new Error('Method not implemented.');
+   this.onThouched = fn
   }
   setDisabledState?(isDisabled: boolean): void {
-    throw new Error('Method not implemented.');
+
   }
 }
