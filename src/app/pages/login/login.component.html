@@ -3,7 +3,9 @@ title="Login into your account"
 primaryBtnText="Login Now"
 secondaryBtnTxt="Sginup now"
 (submit)="submitOnLogin()"
-(navigate)="navigateOnLogin()">
+(navigate)="navigateOnLogin()"
+[disablePrimaryBtn]="!loginForm.valid"
+>
 
   <form [formGroup]="loginForm">
     <app-primary-input formControlName="email" inputName="email" inputName="email" type="email" label="Email" palceholder="xxxx@gmail.com">

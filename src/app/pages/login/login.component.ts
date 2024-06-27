@@ -4,6 +4,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { PrimaryInputComponent } from '../../components/primary-input/primary-input.component';
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
+import { ToastrService } from 'ngx-toastr';
 interface LoginForm {
   email: FormControl,
   password: FormControl
@@ -26,9 +27,11 @@ export class LoginComponent {
 
   loginForm!: FormGroup;
 
+
   constructor(
     private router:Router,
-  private loginService:LoginService) {
+  private loginService:LoginService,
+  private toastService: ToastrService) {
 
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -40,8 +43,8 @@ export class LoginComponent {
    submitOnLogin(){
     console.log(this.loginForm.value);
     this.loginService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
-      next:(value) => console.log("sucesso"),
-      error:(error) => console.log("error")
+      next:(value) => this.toastService.success("Login realizado com sucesso!"),
+      error:(error) => this.toastService.error("Contate o administrador!")
 
 
     })
