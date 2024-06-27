@@ -1,7 +1,7 @@
 # LoginPage
 FULLSTACK PROJECT: LOGIN APP WITH ANGULAR 17 + JAVA SPRING | FRONTEND
 
-The aim is to deepen the knowledge of JWT manipulation and learn the new features of Angular 17.
+## The aim is to deepen the knowledge of JWT manipulation and learn the new features of Angular 17.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
 
